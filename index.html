@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 Reasons to Sell Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0f2b4c;
+  --navy-deep: #091b32;
+  --blue-700: #1a4480;
+  --blue-600: #1e5296;
+  --blue-500: #2670c4;
+  --blue-400: #4a90d9;
+  --blue-300: #7eb3ea;
+  --blue-200: #b8d4f2;
+  --blue-100: #dce9f7;
+  --blue-50: #f0f5fb;
+  --ice: #f7fafd;
+  --white: #ffffff;
+  --gray-900: #1a1a2e;
+  --gray-700: #374151;
+  --gray-500: #6b7280;
+  --gray-300: #d1d5db;
+  --gray-100: #f3f4f6;
+  --accent-gold: #d4a843;
+  --accent-gold-light: #f0dfa8;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background: var(--navy-deep);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== PASSWORD GATE ===== */
+#password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--blue-700) 50%, var(--navy) 100%);
+}
+
+#password-gate.hidden { display: none; }
+
+.gate-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+.gate-card h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.gate-card p {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 28px;
+}
+
+.gate-card input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--blue-200);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.gate-card input:focus { border-color: var(--blue-500); }
+.gate-card input.error { border-color: #e53e3e; animation: shake 0.4s; }
+
+.gate-card button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.gate-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(38,112,196,0.35);
+}
+
+.gate-error {
+  color: #e53e3e;
+  font-size: 13px;
+  margin-top: 10px;
+  display: none;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ===== SLIDE DECK ===== */
+#presentation { display: none; height: 100vh; }
+#presentation.active { display: block; }
+
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* ===== SLIDE LAYOUTS ===== */
+
+/* Title Slide */
+.slide-title {
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+  position: relative;
+}
+
+.slide-title::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(38,112,196,0.15) 0%, transparent 70%);
+}
+
+.slide-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,144,217,0.1) 0%, transparent 70%);
+}
+
+.slide-title .overline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue-300);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-title h1 span {
+  display: block;
+  background: linear-gradient(90deg, var(--blue-300), var(--accent-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-title .subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--blue-200);
+  max-width: 560px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-title .start-hint {
+  margin-top: 40px;
+  font-size: 13px;
+  color: var(--blue-400);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Content Slides */
+.slide-content {
+  background: var(--white);
+  padding: 0;
+}
+
+.slide-header {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--blue-700) 100%);
+  padding: 36px 60px 32px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.slide-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(38,112,196,0.15) 100%);
+}
+
+.slide-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--blue-400);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-header h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(24px, 3.5vw, 36px);
+  color: var(--white);
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-body {
+  flex: 1;
+  padding: 40px 60px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-y: auto;
+}
+
+.slide-body p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--gray-700);
+  max-width: 800px;
+}
+
+.slide-body p strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* Bullet list */
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 800px;
+}
+
+.bullet-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+.bullet-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--blue-500);
+}
+
+/* Quote block */
+.quote-block {
+  background: var(--blue-50);
+  border-left: 4px solid var(--blue-500);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 28px;
+  max-width: 750px;
+}
+
+.quote-block p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+}
+
+/* Key insight box */
+.insight-box {
+  background: linear-gradient(135deg, var(--blue-50) 0%, var(--blue-100) 100%);
+  border: 1px solid var(--blue-200);
+  border-radius: 12px;
+  padding: 22px 28px;
+  max-width: 800px;
+}
+
+.insight-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-bottom: 8px;
+}
+
+.insight-box p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* Summary Slide */
+.slide-summary {
+  background: var(--white);
+  padding: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 880px;
+}
+
+.summary-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--blue-50);
+  border-radius: 10px;
+  padding: 16px 18px;
+  border: 1px solid var(--blue-100);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(15,43,76,0.08);
+}
+
+.summary-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-700);
+}
+
+.summary-text strong {
+  display: block;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+/* Action Slide */
+.slide-action {
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.slide-action h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 46px);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.slide-action p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--blue-200);
+  max-width: 600px;
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+.action-questions {
+  margin-top: 40px;
+  text-align: left;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.action-q {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 16px 22px;
+  color: var(--blue-100);
+  font-size: 15px;
+  line-height: 1.5;
+  backdrop-filter: blur(8px);
+}
+
+.action-q strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* Intro slide */
+.slide-intro {
+  background: var(--white);
+}
+
+.intro-body {
+  flex: 1;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  max-width: 900px;
+}
+
+.intro-body p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--gray-700);
+}
+
+.intro-highlight {
+  background: linear-gradient(135deg, var(--blue-50) 0%, var(--blue-100) 100%);
+  border: 1px solid var(--blue-200);
+  border-radius: 12px;
+  padding: 26px 30px;
+}
+
+.intro-highlight p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--white);
+  border-top: 1px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+}
+
+.nav-bar.dark-nav {
+  background: var(--navy-deep);
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: 8px;
+  color: var(--blue-700);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: var(--blue-100);
+  border-color: var(--blue-400);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.nav-btn:disabled:hover {
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+}
+
+.dark-nav .nav-btn {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--blue-200);
+}
+
+.dark-nav .nav-btn:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.nav-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.progress-dot.active {
+  background: var(--blue-500);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.dark-nav .progress-dot {
+  background: rgba(255,255,255,0.2);
+}
+
+.dark-nav .progress-dot.active {
+  background: var(--blue-400);
+}
+
+.slide-counter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--gray-500);
+  min-width: 60px;
+  text-align: center;
+}
+
+.dark-nav .slide-counter {
+  color: var(--blue-300);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .slide-header { padding: 28px 28px 24px; }
+  .slide-body { padding: 28px 28px 24px; }
+  .intro-body { padding: 28px 28px; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .action-questions { padding: 0 20px; }
+  .nav-bar { padding: 0 12px; height: 50px; }
+  .nav-btn { padding: 8px 14px; font-size: 13px; }
+  .progress-dot { width: 6px; height: 6px; }
+  .progress-dot.active { width: 18px; }
+}
+
+@media (max-width: 480px) {
+  .slide-header h2 { font-size: 22px; }
+  .slide-body p, .bullet-list li { font-size: 15px; }
+  .quote-block p { font-size: 15px; }
+}
+
+/* Stagger animations for content */
+.slide.active .stagger-1 { animation: fadeUp 0.5s 0.1s both; }
+.slide.active .stagger-2 { animation: fadeUp 0.5s 0.2s both; }
+.slide.active .stagger-3 { animation: fadeUp 0.5s 0.3s both; }
+.slide.active .stagger-4 { animation: fadeUp 0.5s 0.4s both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="password-gate">
+  <div class="gate-card">
+    <h2>Presentation Access</h2>
+    <p>Enter the password to view this presentation.</p>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off" />
+    <button onclick="checkPassword()">View Presentation</button>
+    <p class="gate-error" id="gate-error">Incorrect password. Please try again.</p>
+  </div>
+</div>
+
+<!-- PRESENTATION -->
+<div id="presentation">
+  <div class="slide-container">
+
+    <!-- SLIDE 0: TITLE -->
+    <div class="slide slide-title active" data-theme="dark">
+      <div class="overline">An Insider's Guide</div>
+      <h1>The Top 10 Reasons<br><span>to Sell Insurance</span></h1>
+      <p class="subtitle">The real benefits, the real opportunities, and what I wish I knew from day one.</p>
+      <p class="start-hint">Press → or click Next to begin</p>
+    </div>
+
+    <!-- SLIDE 1: WHY -->
+    <div class="slide slide-content slide-intro" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Introduction</div>
+        <h2>Why Sell Insurance?</h2>
+      </div>
+      <div class="intro-body">
+        <p class="stagger-1">Insurance is one of the most <strong>misunderstood and underrated</strong> career paths in the world. Most people hear "insurance" and think of boring paperwork, cold calls, and pushy salespeople.</p>
+        <p class="stagger-2">The reality couldn't be more different. What follows are the top 10 reasons to seriously consider a career in insurance sales — straight from someone who's done it, lived it, and seen the impact firsthand.</p>
+        <div class="intro-highlight stagger-3">
+          <p>This is not a typical sales job. You're not convincing anyone to buy something they don't want. Every single person already needs insurance. You are simply the person who helps them get the right policy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: REASON 1 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 01 of 10</div>
+        <h2>You're Not Selling — You're Prescribing</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">Every single person needs insurance. It's not optional — it's a necessity. That means you very rarely have to "sell" anything in the traditional sense. The prospect has already decided they need it.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Your job is to <strong>listen</strong> to their needs and understand their situation</li>
+          <li>You <strong>prescribe</strong> a better plan than what they currently have</li>
+          <li>You're an advisor and problem-solver — not a pushy salesperson</li>
+          <li>The dynamic shifts entirely: they come to you already knowing they need help</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"I very rarely had to sell anything. It was mainly just about listening to people's needs and then prescribing them a better plan."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: REASON 2 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 02 of 10</div>
+        <h2>Bank Policies Are Your Biggest Opportunity</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">Most people have their insurance through a bank. The problem? Banks sell <strong>generic, one-size-fits-all policies</strong>. Very few people have ever had someone sit down with them and personalize anything.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Banks don't personalize — you do. That's your <strong>competitive advantage</strong></li>
+          <li>With a reputable provider behind you, you offer dramatically better coverage</li>
+          <li>People are terrified they won't get paid when they claim — you solve that fear</li>
+          <li>Comparing policies and track records is an incredibly <strong>powerful closing tool</strong></li>
+        </ul>
+        <div class="insight-box stagger-3">
+          <div class="insight-label">Key Insight</div>
+          <p>If somebody has insurance with a bank, it's one of the easiest conversations you'll ever have. With the right provider, you can come in with way better policies because you're offering personalized service that banks simply don't provide.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: REASON 3 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 03 of 10</div>
+        <h2>You Get Paid Large Lump Sums Upfront</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">One of the most surprising things about insurance is the <strong>commission structure</strong>. You get paid a significant lump sum upfront for each policy — and not just from wealthy clients. Everyday people generate substantial commissions.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Significant <strong>upfront income</strong> from every policy you place</li>
+          <li>You're not creating demand — you're meeting <strong>existing demand</strong> and getting rewarded</li>
+          <li>One of the fastest, most reliable paths to significant earnings</li>
+          <li>Clawbacks exist if clients cancel — but good service makes cancellations rare</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"I realized this was the easiest, best, and quickest way for me to make large sums of money by selling something that people already purchase and already want."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: REASON 4 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 04 of 10</div>
+        <h2>You Don't Fulfill the Product</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">This is a game-changer that most people don't realize. As an insurance broker, you prescribe the right policy and help the client decide. Once the policy is in place, the <strong>billion-dollar insurance company handles everything else</strong>.</p>
+        <ul class="bullet-list stagger-2">
+          <li>The product is intangible — the client can't "return" it</li>
+          <li>Claims processing, customer service, administration — <strong>all handled for you</strong></li>
+          <li>Clients rarely have a bad experience because the insurer has hundreds of staff dedicated to it</li>
+          <li>You sell it, deliver a great experience, and move on to the next person</li>
+        </ul>
+        <div class="insight-box stagger-3">
+          <div class="insight-label">Key Insight</div>
+          <p>You don't need to fulfill the service. You just need to sell the right product and give the client a great experience. The insurance company does the rest.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: REASON 5 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 05 of 10</div>
+        <h2>You Control Your Own Schedule</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">No 9-to-5. No clocking in and out. You set your own meetings, manage your own time, and have the <strong>flexibility to handle personal things</strong> throughout the day.</p>
+        <ul class="bullet-list stagger-2">
+          <li><strong>Structure your work around your life</strong> — not the other way around</li>
+          <li>Travel around your city and meet people face-to-face</li>
+          <li>Use travel time productively — make calls, batch meetings by area</li>
+          <li>Build pockets of personal time into your day naturally</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"I never needed to show up at 9:00 AM and clock off at 5:00 PM. I was always able to come and go as I please and have little pockets of time in between for personal things."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: REASON 6 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 06 of 10</div>
+        <h2>AI Has Made the Job Dramatically Easier</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">Selling insurance in 2025 and beyond is a fundamentally different proposition. <strong>Artificial intelligence</strong> has transformed the heavy lifting that used to take hours of expertise.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Load entire policy documents into AI tools and <strong>compare wordings in seconds</strong></li>
+          <li>Run multiple financial scenarios for a prospect — <strong>personalized in minutes</strong></li>
+          <li>Walk into meetings with deeply informed recommendations from day one</li>
+          <li>Use AI to analyze <strong>prospect signals</strong> before you visit — identify fit before you knock</li>
+        </ul>
+        <div class="insight-box stagger-3">
+          <div class="insight-label">Key Insight</div>
+          <p>There has never been a greater opportunity to enter this space. AI tools let you deliver advice that used to require years of experience, right from the start. The barrier to entry has dropped while the quality of service you can provide has skyrocketed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: REASON 7 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 07 of 10</div>
+        <h2>Referrals Compound Your Business</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">Do a good job, make people feel comfortable, and give them a great experience — and they <strong>will refer their friends and family</strong> without even being asked. One great client opens the door to five more.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Referrals are the <strong>easiest, warmest, and most profitable</strong> leads you'll ever get</li>
+          <li>The prospect already trusts you because someone they trust recommended you</li>
+          <li>The hard part — <strong>building credibility</strong> — is already done before you pick up the phone</li>
+          <li>One client becomes five. Five become twenty-five. It compounds.</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"Referrals are a massive thing and very easy to get if you do a good job and you make people feel comfortable. They're more than happy to refer their friends or family."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: REASON 8 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 08 of 10</div>
+        <h2>Incredible Incentives and Perks</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">Beyond the commissions, insurance companies offer incredible <strong>incentive programs</strong>. Hit your targets and they invest in keeping you motivated and rewarded in tangible, memorable ways.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Hit targets and companies <strong>take you on paid vacations</strong></li>
+          <li>Bonuses, awards, and recognition programs that most jobs can't match</li>
+          <li>The more you sell, the more they invest in you — it's a <strong>positive cycle</strong></li>
+          <li>One of the few industries where success is celebrated this generously</li>
+        </ul>
+        <div class="insight-box stagger-3">
+          <div class="insight-label">Key Insight</div>
+          <p>The perks and incentives from insurance providers go far beyond commissions. Hit your targets and they'll literally take you on vacations. This is one of the few industries where your success is celebrated and rewarded this generously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: REASON 9 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 09 of 10</div>
+        <h2>You Build Real Professional Credibility</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">When you work in insurance, you become a <strong>financial advisor</strong>. You're someone people trust with one of the most important financial decisions of their lives. This carries real weight.</p>
+        <ul class="bullet-list stagger-2">
+          <li>The role <strong>demystifies the financial sector</strong> — knowledge most people never access</li>
+          <li>Valuable for your own personal finances and long-term career trajectory</li>
+          <li>Opens doors and increases your credibility in professional circles</li>
+          <li>One of the few professions where <strong>dressing sharp every day</strong> is the standard</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"It demystified the insurance industry for me and allowed me to have insight into something so important about the financial sector that I had no exposure to before."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: REASON 10 -->
+    <div class="slide slide-content" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Reason 10 of 10</div>
+        <h2>You Genuinely Change Lives</h2>
+      </div>
+      <div class="slide-body">
+        <p class="stagger-1">This is the one that matters most. When a trauma policy pays out, when a life insurance policy supports a grieving family — <strong>you are the person who made that possible</strong>.</p>
+        <ul class="bullet-list stagger-2">
+          <li>Real families receive <strong>hundreds of thousands of dollars</strong> because you sat down with them</li>
+          <li>People will thank you — the impact on their lives is immeasurable</li>
+          <li>You're not just selling a product — you're <strong>protecting families</strong> at their most vulnerable</li>
+          <li>Very few careers offer this combination of financial reward and meaningful impact</li>
+        </ul>
+        <div class="quote-block stagger-3">
+          <p>"I have personally put hundreds of thousands of dollars into families' hands, and they have thanked me, and the impact has been immeasurable in their lives."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: SUMMARY -->
+    <div class="slide slide-content slide-summary" data-theme="light">
+      <div class="slide-header">
+        <div class="slide-number">Quick Reference</div>
+        <h2>The Top 10 at a Glance</h2>
+      </div>
+      <div class="slide-body">
+        <div class="summary-grid stagger-1">
+          <div class="summary-item">
+            <div class="summary-num">1</div>
+            <div class="summary-text"><strong>You're Prescribing, Not Selling</strong>Everyone already needs it. You help them get the right plan.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">2</div>
+            <div class="summary-text"><strong>Banks Are Your Opportunity</strong>Generic bank policies can't compete with personalized coverage.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">3</div>
+            <div class="summary-text"><strong>Large Upfront Commissions</strong>Significant income from everyday clients, not just the wealthy.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">4</div>
+            <div class="summary-text"><strong>No Product Fulfillment</strong>Sell it and move on. The insurer handles everything after.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">5</div>
+            <div class="summary-text"><strong>Your Schedule, Your Rules</strong>No 9-to-5. Full flexibility to work on your terms.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">6</div>
+            <div class="summary-text"><strong>AI Supercharges You</strong>Expert-level advice from day one with modern AI tools.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">7</div>
+            <div class="summary-text"><strong>Referrals Compound</strong>Happy clients become your best warm, pre-qualified leads.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">8</div>
+            <div class="summary-text"><strong>Amazing Incentives</strong>Hit targets and get rewarded with vacations and bonuses.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">9</div>
+            <div class="summary-text"><strong>Professional Credibility</strong>Become a financial advisor. Gain knowledge and status.</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-num">10</div>
+            <div class="summary-text"><strong>You Change Lives</strong>Protect families when it matters most. Real impact.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: ACTION -->
+    <div class="slide slide-action" data-theme="dark">
+      <h2>Your Insurance Career<br>Starts Today</h2>
+      <p>Ask yourself these questions — then take the first step.</p>
+      <div class="action-questions">
+        <div class="action-q stagger-1"><strong>1.</strong> Which of these 10 reasons resonates most with you?</div>
+        <div class="action-q stagger-2"><strong>2.</strong> Who are 5 people you know with generic bank insurance?</div>
+        <div class="action-q stagger-3"><strong>3.</strong> What would your ideal weekly schedule look like?</div>
+        <div class="action-q stagger-4"><strong>4.</strong> What's your 90-day income goal, and how many policies would get you there?</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <div class="nav-bar" id="nav-bar">
+    <button class="nav-btn" id="prev-btn" onclick="prevSlide()" disabled>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </button>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="nav-progress" id="nav-progress"></div>
+      <div class="slide-counter" id="slide-counter">1 / 14</div>
+    </div>
+    <button class="nav-btn" id="next-btn" onclick="nextSlide()">
+      Next
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// Password gate
+const PASS_HASH = 'f640c2154ea743c470abe1e038123f0107951c8e3176e1898b29171e38c6aa78';
+
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function checkPassword() {
+  const input = document.getElementById('gate-input');
+  const error = document.getElementById('gate-error');
+  const hash = await sha256(input.value);
+
+  if (hash === PASS_HASH) {
+    document.getElementById('password-gate').classList.add('hidden');
+    document.getElementById('presentation').classList.add('active');
+    updateNav();
+  } else {
+    input.classList.add('error');
+    error.style.display = 'block';
+    setTimeout(() => { input.classList.remove('error'); }, 400);
+  }
+}
+
+document.getElementById('gate-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') checkPassword();
+  document.getElementById('gate-error').style.display = 'none';
+});
+
+// Slide navigation
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+
+function goToSlide(index) {
+  if (index < 0 || index >= total || index === current) return;
+
+  const prev = slides[current];
+  const next = slides[index];
+
+  prev.classList.remove('active');
+  prev.classList.add(index > current ? 'exit-left' : '');
+
+  setTimeout(() => { prev.classList.remove('exit-left'); }, 500);
+
+  current = index;
+  next.classList.add('active');
+  updateNav();
+}
+
+function nextSlide() { goToSlide(current + 1); }
+function prevSlide() { goToSlide(current - 1); }
+
+function updateNav() {
+  document.getElementById('prev-btn').disabled = current === 0;
+  document.getElementById('next-btn').disabled = current === total - 1;
+  document.getElementById('slide-counter').textContent = `${current + 1} / ${total}`;
+
+  // Progress dots
+  const prog = document.getElementById('nav-progress');
+  prog.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'progress-dot' + (i === current ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    prog.appendChild(dot);
+  }
+
+  // Dark/light nav
+  const theme = slides[current].dataset.theme;
+  const nav = document.getElementById('nav-bar');
+  nav.classList.toggle('dark-nav', theme === 'dark');
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('password-gate').classList.contains('hidden')) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+  }
+});
+
+// Touch navigation
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+document.addEventListener('touchend', (e) => {
+  if (!document.getElementById('password-gate').classList.contains('hidden')) return;
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) nextSlide();
+    else prevSlide();
+  }
+});
+
+updateNav();
+</script>
+</body>
+</html>
