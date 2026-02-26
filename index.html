@@ -1037,18 +1037,10 @@ tr:last-child td { border-bottom: none; }
 
 <script>
 // Password
-const PASS_HASH = '9d571f4605f4726d804101786cfb5efb00e4871cd3b9fc5f6b52b549245507a1'; // password: insurance2026 | verified via Web Crypto API
-
-async function sha256(msg) {
-  const buf = new TextEncoder().encode(msg);
-  const hash = await crypto.subtle.digest('SHA-256', buf);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-async function checkPassword() {
+function checkPassword() {
   const input = document.getElementById('gate-input');
   const err = document.getElementById('gate-error');
-  if (await sha256(input.value.trim()) === PASS_HASH) {
+  if (input.value.trim() === 'insurance2026') {
     document.getElementById('password-gate').classList.add('hidden');
     document.getElementById('presentation').classList.add('active');
     renderNav();
