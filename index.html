@@ -1048,7 +1048,7 @@ async function sha256(msg) {
 async function checkPassword() {
   const input = document.getElementById('gate-input');
   const err = document.getElementById('gate-error');
-  if (await sha256(input.value) === PASS_HASH) {
+  if (await sha256(input.value.trim()) === PASS_HASH) {
     document.getElementById('password-gate').classList.add('hidden');
     document.getElementById('presentation').classList.add('active');
     renderNav();
