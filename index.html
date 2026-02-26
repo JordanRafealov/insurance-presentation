@@ -146,9 +146,10 @@ strong { font-weight: 700; }
 .card-amber { border-color: rgba(217,119,6,0.25); background: var(--amber-soft); }
 
 /* ===== GRIDS ===== */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
-.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: stretch; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; align-items: stretch; }
+.grid-2 > .card, .grid-3 > .card, .grid-4 > .card { display: flex; flex-direction: column; }
 
 /* ===== STAT CARDS ===== */
 .stat { text-align: center; padding: 28px 20px; }
@@ -224,7 +225,8 @@ strong { font-weight: 700; }
   gap: 24px; padding: 20px 0;
 }
 .gap-box {
-  text-align: center; padding: 24px 28px; border-radius: var(--radius); min-width: 200px;
+  text-align: center; padding: 24px 28px; border-radius: var(--radius);
+  flex: 1 1 0; min-width: 0;
 }
 .gap-box h4 { margin-bottom: 6px; }
 .gap-arrow {
@@ -432,30 +434,37 @@ tr:last-child td { border-bottom: none; }
     <h2 class="s1">You're Not Selling —<br>You're Prescribing</h2>
     <div class="section-divider s1"></div>
 
-    <p class="subtitle s2" style="max-width:700px; margin:0 auto 28px;">Every person needs insurance. The prospect has already decided. Your job is to listen and prescribe a better plan.</p>
-
-    <div class="gap-visual s3">
-      <div class="gap-box" style="background:var(--red-soft); border:1px solid rgba(220,38,38,0.2);">
-        <span class="badge badge-amber" style="margin-bottom:8px;">Traditional Sales</span>
-        <h4 style="font-size:16px;">Convince & Push</h4>
-        <p class="text-secondary" style="font-size:14px;">Creating demand from scratch</p>
+    <div class="grid-2 s2" style="margin-bottom:20px;">
+      <div class="card" style="border-color:rgba(220,38,38,0.2);">
+        <div class="badge" style="color:var(--red); background:var(--red-soft); border:1px solid rgba(220,38,38,0.2); margin-bottom:14px;">Traditional Sales</div>
+        <h4 style="font-size:18px; margin-bottom:10px;">Convince & Push</h4>
+        <ul class="x-list" style="font-size:15px;">
+          <li>Create demand from scratch</li>
+          <li>Overcome objections constantly</li>
+          <li>Fight for every sale</li>
+        </ul>
       </div>
-      <div class="gap-arrow">→<br><span style="font-size:11px;">YOUR ROLE</span></div>
-      <div class="gap-box" style="background:var(--green-soft); border:1px solid rgba(22,163,74,0.2);">
-        <span class="badge badge-green" style="margin-bottom:8px;">Insurance Advisor</span>
-        <h4 style="font-size:16px;">Listen & Prescribe</h4>
-        <p class="text-secondary" style="font-size:14px;">Meeting existing demand</p>
+      <div class="card card-green">
+        <div class="badge badge-green" style="margin-bottom:14px;">Insurance Advisor</div>
+        <h4 style="font-size:18px; margin-bottom:10px;">Listen & Prescribe</h4>
+        <ul class="check-list" style="font-size:15px;">
+          <li>Everyone already needs insurance</li>
+          <li>Understand their situation</li>
+          <li>Prescribe a better plan</li>
+        </ul>
       </div>
     </div>
 
-    <ul class="check-list s4" style="max-width:700px; margin:20px auto 0;">
-      <li>Your job is to <strong>listen</strong> to their needs and understand their situation</li>
-      <li>You <strong>prescribe</strong> a better plan than what they currently have</li>
-      <li>You're an advisor and problem-solver — not a pushy salesperson</li>
-      <li>The dynamic shifts entirely: they already know they need help</li>
-    </ul>
+    <div class="card s3" style="margin-bottom:20px;">
+      <h4>The Dynamic Shift</h4>
+      <ul class="check-list">
+        <li>The prospect has <strong>already decided</strong> they need insurance — you don't sell the concept</li>
+        <li>You're an <strong>advisor and problem-solver</strong> — not a pushy salesperson</li>
+        <li>Your job is simply to listen, understand, and prescribe the right plan</li>
+      </ul>
+    </div>
 
-    <div class="quote-card s5" style="max-width:700px; margin:24px auto 0;">
+    <div class="quote-card s4">
       <p>"I very rarely had to sell anything. It was mainly just about listening to people's needs and then prescribing them a better plan."</p>
     </div>
   </div>
@@ -516,15 +525,15 @@ tr:last-child td { border-bottom: none; }
     <div class="grid-3 s2" style="margin-bottom:24px;">
       <div class="card card-sm stat">
         <div class="num">1</div>
-        <div class="label">Policy placed</div>
-      </div>
-      <div class="card card-sm stat">
-        <div class="num" style="font-size:32px;">= Significant</div>
-        <div class="label">Upfront commission</div>
+        <div class="label">Policy = large payout</div>
       </div>
       <div class="card card-sm stat">
         <div class="num" style="color:var(--green);">Day 1</div>
         <div class="label">Income starts immediately</div>
+      </div>
+      <div class="card card-sm stat">
+        <div class="num" style="color:var(--amber);">Low</div>
+        <div class="label">Barrier to earning</div>
       </div>
     </div>
 
@@ -554,14 +563,14 @@ tr:last-child td { border-bottom: none; }
     <p class="subtitle s2" style="max-width:700px; margin:0 auto 28px;">This is the game-changer most people don't realize. You prescribe. The billion-dollar insurer handles everything else.</p>
 
     <div class="flow-row s3" style="margin-bottom:28px;">
-      <div class="flow-box" style="flex:1.2;">
+      <div class="flow-box">
         <div style="font-size:11px; opacity:0.7; margin-bottom:4px;">YOUR JOB</div>
-        Listen → Prescribe → Close
+        Listen · Prescribe · Close
       </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-box-green" style="flex:2;">
-        <div style="font-size:11px; opacity:0.7; margin-bottom:4px;">INSURANCE COMPANY'S JOB</div>
-        Claims · Service · Admin · Renewals · Support
+      <div class="flow-box-green">
+        <div style="font-size:11px; opacity:0.7; margin-bottom:4px;">INSURANCE COMPANY</div>
+        Claims · Service · Admin · Support
       </div>
     </div>
 
@@ -577,7 +586,7 @@ tr:last-child td { border-bottom: none; }
       </div>
       <div class="card card-sm">
         <h4 style="font-size:17px;">What You Don't Do</h4>
-        <ul class="check-list" style="font-size:15px;">
+        <ul class="x-list" style="font-size:15px;">
           <li>Process claims</li>
           <li>Handle customer support</li>
           <li>Manage administration</li>
@@ -600,25 +609,33 @@ tr:last-child td { border-bottom: none; }
     <h2 class="s1">You Control Your<br>Own Schedule</h2>
     <div class="section-divider s1"></div>
 
-    <div class="gap-visual s2">
-      <div class="gap-box" style="background:var(--red-soft); border:1px solid rgba(220,38,38,0.15);">
-        <h4 style="font-size:16px; color:var(--red);">Traditional Job</h4>
-        <p class="text-secondary" style="font-size:14px;">9-to-5 · Clock in/out<br>No flexibility · Fixed location</p>
+    <div class="grid-2 s2" style="margin-bottom:20px;">
+      <div class="card" style="border-color:rgba(220,38,38,0.2);">
+        <div class="badge" style="color:var(--red); background:var(--red-soft); border:1px solid rgba(220,38,38,0.2); margin-bottom:14px;">Traditional Job</div>
+        <ul class="x-list" style="font-size:15px;">
+          <li>Clock in at 9:00 AM sharp</li>
+          <li>Clock out at 5:00 PM</li>
+          <li>Fixed desk, fixed location</li>
+          <li>Ask permission for personal time</li>
+        </ul>
       </div>
-      <div class="gap-arrow">→</div>
-      <div class="gap-box" style="background:var(--green-soft); border:1px solid rgba(22,163,74,0.15);">
-        <h4 style="font-size:16px; color:var(--green);">Insurance Career</h4>
-        <p class="text-secondary" style="font-size:14px;">Your schedule · Your pace<br>Full flexibility · Mobile</p>
+      <div class="card card-green">
+        <div class="badge badge-green" style="margin-bottom:14px;">Insurance Career</div>
+        <ul class="check-list" style="font-size:15px;">
+          <li>Set your own meetings</li>
+          <li>Manage your own hours</li>
+          <li>Travel your city, meet people</li>
+          <li>Personal time built into your day</li>
+        </ul>
       </div>
     </div>
 
-    <div class="card s3" style="margin:20px 0;">
-      <h4>Your Day, Your Way</h4>
+    <div class="card s3" style="margin-bottom:20px;">
+      <h4>Work Around Your Life</h4>
       <ul class="check-list">
         <li><strong>Structure work around your life</strong> — not the other way around</li>
-        <li>Take personal time between meetings without asking permission</li>
-        <li>Travel your city, meet people face-to-face, be on the move</li>
-        <li>Use drive time productively — calls from the car, batched meetings by area</li>
+        <li>Batch meetings by area to maximize your day</li>
+        <li>Use drive time productively — calls from the car, prep between visits</li>
       </ul>
     </div>
 
@@ -683,10 +700,10 @@ tr:last-child td { border-bottom: none; }
     <div class="section-divider s1"></div>
 
     <div class="pyramid-container s2">
-      <div class="pyramid-tier" style="width:180px; background:var(--accent);">1 Happy Client</div>
-      <div class="pyramid-tier" style="width:300px; background:var(--accent-light);">5 Referrals</div>
-      <div class="pyramid-tier" style="width:440px; background:#3b82f6;">25 Warm Leads</div>
-      <div class="pyramid-tier" style="width:580px; background:var(--green);">125+ Over Time</div>
+      <div class="pyramid-tier" style="width:30%; background:var(--accent);">1 Happy Client</div>
+      <div class="pyramid-tier" style="width:50%; background:var(--accent-light);">5 Referrals</div>
+      <div class="pyramid-tier" style="width:70%; background:#3b82f6;">25 Warm Leads</div>
+      <div class="pyramid-tier" style="width:90%; background:var(--green);">125+ Over Time</div>
     </div>
 
     <div class="card s3" style="margin:20px 0;">
@@ -765,17 +782,17 @@ tr:last-child td { border-bottom: none; }
     <div class="section-divider s1"></div>
 
     <div class="grid-3 s2" style="margin-bottom:24px;">
-      <div class="card card-sm" style="text-align:center;">
+      <div class="card card-sm card-accent" style="text-align:center; padding:28px 20px;">
         <div style="font-size:28px; font-weight:800; color:var(--accent); margin-bottom:8px;">Title</div>
-        <p class="text-secondary" style="font-size:14px;">Become a <strong>Financial Advisor</strong> — a title that carries real weight and opens doors</p>
+        <p class="text-secondary" style="font-size:14px; line-height:1.5;">Become a <strong>Financial Advisor</strong> — real weight and opens doors</p>
       </div>
-      <div class="card card-sm" style="text-align:center;">
+      <div class="card card-sm card-accent" style="text-align:center; padding:28px 20px;">
         <div style="font-size:28px; font-weight:800; color:var(--accent); margin-bottom:8px;">Knowledge</div>
-        <p class="text-secondary" style="font-size:14px;">Gain deep insight into the financial sector most people never access</p>
+        <p class="text-secondary" style="font-size:14px; line-height:1.5;">Deep insight into the financial sector most people never access</p>
       </div>
-      <div class="card card-sm" style="text-align:center;">
+      <div class="card card-sm card-accent" style="text-align:center; padding:28px 20px;">
         <div style="font-size:28px; font-weight:800; color:var(--accent); margin-bottom:8px;">Presence</div>
-        <p class="text-secondary" style="font-size:14px;">One of the few professions where wearing a suit every day is the standard</p>
+        <p class="text-secondary" style="font-size:14px; line-height:1.5;">One of the few professions where dressing sharp is the standard</p>
       </div>
     </div>
 
