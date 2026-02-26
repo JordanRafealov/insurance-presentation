@@ -335,19 +335,99 @@ tr:last-child td { border-bottom: none; }
 .nav-arr:hover { background: var(--accent-soft); border-color: rgba(30,82,150,0.25); color: var(--accent); }
 .nav-arr:disabled { opacity: 0.3; cursor: default; }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE — TABLET ===== */
 @media (max-width: 768px) {
-  .slide { padding: 28px 20px 70px; }
+  .slide { padding: 24px 20px 68px; }
   h1 { font-size: 36px; }
-  h2 { font-size: 30px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+  h4 { font-size: 18px; }
+  .subtitle { font-size: 17px; }
+  .card { padding: 24px; }
+  .card-sm { padding: 18px; }
   .grid-2, .tl-grid { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .gap-visual { flex-direction: column; gap: 12px; }
   .gap-arrow { transform: rotate(90deg); }
-  .flow-row { flex-wrap: wrap; }
+  .flow-row { flex-wrap: wrap; gap: 6px; }
+  .flow-box, .flow-box-green { padding: 12px 14px; font-size: 12px; }
+  .flow-arrow { font-size: 14px; }
+  .pyramid-tier { font-size: 13px; padding: 12px 16px; }
+  .quote-card { padding: 20px 22px; }
+  .quote-card p { font-size: 16px; }
+  .highlight-box { padding: 20px 22px; }
+  .highlight-box p { font-size: 15px; }
+  .stat .num { font-size: 36px; }
+  .stat .label { font-size: 13px; }
+  .check-list li, .x-list li, .bullet-list li { font-size: 15px; }
   .nav-arrows { left: 12px; }
   .nav-counter { right: 12px; }
+  .tl-card { padding: 18px; }
+  .tl-card h4 { font-size: 15px; }
+}
+
+/* ===== RESPONSIVE — MOBILE ===== */
+@media (max-width: 480px) {
+  .slide { padding: 18px 16px 64px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  h4 { font-size: 16px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.1em; }
+  .subtitle { font-size: 15px; margin-bottom: 16px; }
+  .section-divider { margin-bottom: 20px; }
+  .card { padding: 20px; border-radius: 12px; }
+  .card-sm { padding: 16px; }
+  .grid-2, .grid-3, .grid-4, .tl-grid { grid-template-columns: 1fr; gap: 12px; }
+  .grid-2 > .card, .grid-3 > .card, .grid-4 > .card { display: flex; flex-direction: column; }
+  .flow-row { gap: 4px; }
+  .flow-box, .flow-box-green { padding: 10px 8px; font-size: 11px; border-radius: 8px; }
+  .flow-arrow { font-size: 12px; }
+  .gap-visual { gap: 10px; padding: 12px 0; }
+  .gap-box { padding: 18px 16px; }
+  .gap-box h4 { font-size: 15px; }
+  .gap-box p { font-size: 13px; }
+  .gap-arrow { font-size: 14px; }
+  .pyramid-container { gap: 5px; padding: 12px 0; }
+  .pyramid-tier { padding: 10px 14px; font-size: 12px; border-radius: 6px; }
+  .quote-card { padding: 16px 18px; border-radius: 12px; }
+  .quote-card p { font-size: 15px; }
+  .highlight-box { padding: 16px 18px; border-radius: 12px; }
+  .highlight-box p { font-size: 14px; }
+  .insight-label { font-size: 10px; }
+  .stat { padding: 20px 14px; }
+  .stat .num { font-size: 30px; }
+  .stat .label { font-size: 12px; }
+  .check-list li, .x-list li { font-size: 14px; padding: 6px 0 6px 28px; }
+  .bullet-list li { font-size: 14px; padding: 8px 0 8px 24px; }
+  .badge { font-size: 10px; padding: 3px 10px; }
+  .tl-card { padding: 16px; border-radius: 12px; }
+  .tl-card h4 { font-size: 14px; margin-bottom: 6px; }
+  .tl-card p { font-size: 13px; }
+  .tl-badge { font-size: 10px; padding: 2px 10px; }
+  .glow-card { padding: 24px 20px; }
+  .glow-card h3 { font-size: 20px; }
+  .glow-card p { font-size: 15px; }
+  .nav-bar { height: 44px; gap: 5px; }
+  .nav-dot { width: 6px; height: 6px; }
+  .nav-dot.active { transform: scale(1.2); }
+  .nav-arrows { left: 8px; bottom: 50px; }
+  .nav-arr { width: 32px; height: 32px; font-size: 14px; border-radius: 6px; }
+  .nav-counter { right: 8px; bottom: 50px; font-size: 12px; }
+
+  /* Gate */
+  .gate-card { padding: 32px 24px; }
+  .gate-card h2 { font-size: 20px; }
+  .gate-card input { padding: 12px 14px; font-size: 15px; }
+  .gate-card button { padding: 12px; font-size: 15px; }
+
+  /* Dark slide title */
+  .slide-dark .slide-inner h1 { font-size: 30px !important; }
+  .slide-dark .playfair-quote { font-size: 16px; }
+
+  /* Action plan questions */
+  .slide-dark .slide-inner > div:last-child > div { padding: 12px 16px; font-size: 14px; }
 }
 
 /* ===== STAGGER ANIMATIONS ===== */
