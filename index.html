@@ -51,32 +51,36 @@ html, body {
 #password-gate {
   position: fixed; inset: 0; z-index: 10000;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--accent) 60%, #3b82f6 100%);
+  background: #0a0a14;
 }
 #password-gate.hidden { display: none; }
 
 .gate-card {
-  background: #fff; border-radius: 16px; padding: 48px 40px;
+  background: #13132a; border-radius: 16px; padding: 48px 40px;
   max-width: 420px; width: 90%; text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.08), 0 20px 60px rgba(0, 0, 0, 0.4);
 }
-.gate-card h2 { font-weight: 800; font-size: 22px; color: var(--navy); margin-bottom: 8px; }
-.gate-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+.gate-card h2 { font-weight: 700; font-size: 22px; color: #f0f0f5; margin-bottom: 8px; }
+.gate-card p { font-size: 13px; color: #8080a0; margin-bottom: 28px; line-height: 1.5; }
 .gate-card input {
-  width: 100%; padding: 14px 18px; border: 2px solid var(--border);
-  border-radius: 10px; font-size: 16px; font-family: inherit; outline: none;
-  transition: border-color 0.2s;
+  width: 100%; padding: 14px 18px; border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 10px; font-size: 15px; font-family: 'Inter', sans-serif; outline: none;
+  background: rgba(255, 255, 255, 0.05); color: #f0f0f5;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.gate-card input:focus { border-color: var(--accent); }
+.gate-card input::placeholder { color: #5a5a7a; }
+.gate-card input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
 .gate-card input.error { border-color: var(--red); animation: shake 0.4s; }
 .gate-card button {
   width: 100%; margin-top: 16px; padding: 14px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
   color: white; border: none; border-radius: 10px;
-  font-size: 16px; font-weight: 700; font-family: inherit;
-  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif;
+  cursor: pointer; transition: all 0.2s;
+  text-transform: uppercase; letter-spacing: 0.08em;
 }
-.gate-card button:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30,82,150,0.35); }
+.gate-card button:hover { background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3); transform: translateY(-1px); }
 .gate-error { color: var(--red); font-size: 13px; margin-top: 10px; display: none; }
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
 
@@ -1033,7 +1037,7 @@ tr:last-child td { border-bottom: none; }
 
 <script>
 // Password
-const PASS_HASH = '2f1798980025fd65ea61d5b3c9537a7bcfefa0e67c9cb67447e317e67506f40a';
+const PASS_HASH = '9d571f4605f4726d804101786cfb5efb00e4871cd3b9fc5f6b52b549245507a1'; // password: insurance2026 | verified via Web Crypto API
 
 async function sha256(msg) {
   const buf = new TextEncoder().encode(msg);
